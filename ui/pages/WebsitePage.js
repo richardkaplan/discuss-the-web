@@ -28,6 +28,8 @@ const styles = {
   }
 }
 
+// https://www.nejm.org/doi/full/10.1056/NEJMsa1807379?query=featured_home
+
 //------------------------------------------------------------------------------
 
 class WebsitePage extends React.Component {
@@ -47,7 +49,13 @@ class WebsitePage extends React.Component {
         <CircularProgress />
       </div>
     ) : (
-      <iframe src={website.url} className={classes.iframe} />
+      <iframe
+        src={website.url}
+        className={classes.iframe}
+        sandbox={
+          'allow-forms allow-pointer-lock	allow-popups allow-same-origin allow-scripts'
+        }
+      />
     )
 
     return (

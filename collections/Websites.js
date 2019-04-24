@@ -22,16 +22,12 @@ Websites.attachSchema(Websites.schema)
 
 //------------------------------------------------------------------------------
 
-// Create a new link. Returns the link key.
-Websites.addUrl = new ValidatedMethod({
-  name: 'Websites.addUrl',
+// Create a new website. Returns the website _id.
+Websites.add = new ValidatedMethod({
+  name: 'Websites.add',
 
   validate: Websites.schema.pick('url').validator({ clean: true }),
 
-  /**
-   * @param { Object } args
-   * @param { string } args.url
-   */
   run: async function({ url }) {
     // Convert to lowercase and remove hash
     url = new URL2(url).href.split('#')[0]
@@ -57,13 +53,25 @@ Websites.addUrl = new ValidatedMethod({
     }
 
     // Check that the url can be loaded in an iframe
-    const frameHeader = res.headers['x-frame-options'] || ''
-    const iframeIssue = ['deny', 'sameorigin'].includes(
-      frameHeader.toLocaleLowerCase()
-    )
+    const iframeIssue = !!res.headers['x-frame-options']
 
     // Convert to lowercase and remove hash
     return Websites.insert({ url, iframeIssue })
+  }
+})
+
+//------------------------------------------------------------------------------
+
+// Delete a website
+Websites.delete = new ValidatedMethod({
+  name: 'Websites.delete',
+
+  validate: new SimpleSchema({
+    _id: { type: SimpleSchema.RegEx.Id }
+  }).validator(),
+
+  run: function({ _id }) {
+    Websites.remove(_id)
   }
 })
 

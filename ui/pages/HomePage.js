@@ -17,7 +17,7 @@ import { inIFrame } from 'dcs-client'
 
 const styles = {
   list: { marginTop: '10px' },
-  info: { float: 'right', marginRight: '20px' },
+  info: { float: 'right', marginRight: '10px' },
   body: {
     width: '100%',
     maxWidth: '1024px',

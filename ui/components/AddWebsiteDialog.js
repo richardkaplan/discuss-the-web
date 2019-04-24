@@ -33,7 +33,7 @@ export default class AddWebsiteDialog extends React.Component {
 
   handleAdd = () => {
     this.setState({ loading: true })
-    Websites.addUrl.call({ url: this.state.url }, (err, res) => {
+    Websites.add.call({ url: this.state.url }, (err, res) => {
       this.setState({ loading: false })
       if (err) {
         let error = err.toString()
