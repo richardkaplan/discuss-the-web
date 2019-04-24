@@ -1,0 +1,23 @@
+/*******************************************************************************
+	Configuration for the "Custom Header Links" Discourse component
+*******************************************************************************/
+
+/*
+Theme Settings - Custom header links:
+------------------------------------
+ 
+Home, Back to the home page, /docuss/d_home, vdo.discuss_the_web, self, keep
+ 
+Forum, Go to the discussion forum, /latest, vdm.discuss_the_web, self, keep
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html:not(.dcs-website-discuss_the_web) .headerLink.discuss_the_web {
+  display: none;
+}
+
+html.dcs-website-discuss_the_web .headerLink a {
+  color: #305070;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}

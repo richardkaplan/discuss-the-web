@@ -1,0 +1,19 @@
+{
+  "$schema": "https://sylque.github.io/dcs-website-schema/json/schema.json",
+
+  "websiteName": "discuss_the_web",
+
+  "logo": {
+    "logoUrl": "logo.png",
+    "mobileLogoUrl": "logo.png",
+    "smallLogoUrl": "logo.png"
+  },
+
+  "dcsTag": {
+    "maxPageNameLength": 6,
+    "maxTriggerIdLength": 9,
+    "forceLowercase": true
+  },
+
+  "dynamicPages": { "url": "/", "namePrefix": "d_", "homePageName": "d_home" }
+}
